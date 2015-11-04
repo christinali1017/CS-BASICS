@@ -1,4 +1,0 @@
-# Summary
-
-* Operation system
-
