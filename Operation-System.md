@@ -60,7 +60,7 @@ Only one process can be in the running state at any given time. The remaining pr
 - Shortest remaining time first
 - Priority scheduling. Pick process with highest priority
   * **Possible issues of priority scheduling**: **Starvation**: With an endless supply of high priority jobs, low priority processes may never execute
-  * Solution to starvation: increases priority with age
+  * **Solution to starvation: increases priority with age**
 - Round-robin scheduling 
 
 
@@ -143,6 +143,29 @@ Example: Suppose there is a factory which takes 8 hours to produce a car and it 
 http://stackoverflow.com/questions/19031902/what-is-thrashing-why-does-it-occur
 
 In operating systems that implement a virtual memory space the programs allocate memory from an address space that may be much larger than the actual amount of RAM the system possesses. The OS is responsible for deciding which programs "memory" is in actual RAM. It needs a place to keep things while they are "out". This is what is called "swap space", as the OS is swapping things in and out as needed. **When this swapping activity is occurring such that it is the major consumer of the CPU time, then you are effectively thrashing**. You prevent it by running fewer programs, writing programs that use memory more efficiently, adding RAM to the system, or maybe even by increasing the swap size.
+
+
+###Mutex vs Semaphore
+---
+http://www.geeksforgeeks.org/mutex-vs-semaphore/
+
+Consider the standard producer-consumer problem. Assume, we have a buffer of 4096 byte length. A producer thread collects the data and writes it to the buffer. A consumer thread processes the collected data from the buffer. Objective is, both the threads should not run at the same time.
+
+**Using Mutex**:
+
+A mutex provides mutual exclusion, either producer or consumer can have the key (mutex) and proceed with their work. As long as the buffer is filled by producer, the consumer needs to wait, and vice versa.
+
+**At any point of time, only one thread can work with the entire buffer**. The concept can be generalized using semaphore.
+
+**Using Semaphore**:
+
+A semaphore is a generalized mutex. In lieu of single buffer, we can split the 4 KB buffer into four 1 KB buffers (identical resources). A semaphore can be associated with these four buffers. The consumer and producer can work on different buffers at the same time.
+
+Strictly speaking, **a mutex is locking mechanism** used to synchronize access to a resource. Only one task (can be a thread or process based on OS abstraction) can acquire the mutex. It means there is ownership associated with mutex, and only the owner can release the lock (mutex).
+
+**Semaphore is signaling mechanism** (“I am done, you can carry on” kind of signal). For example, if you are listening songs (assume it as one task) on your mobile and at the same time your friend calls you, an interrupt is triggered upon which an interrupt service routine (ISR) signals the call processing task to wakeup.
+
+
 
 
 
