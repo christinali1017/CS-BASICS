@@ -58,7 +58,7 @@ Only one process can be in the running state at any given time. The remaining pr
 - First come first served
 - Shortest job first
 - Shortest remaining time first
-- Priority scheduling. Pick process with highest priority
+- Priority scheduling. Pick process with highest priority (**Starvation and Aging**)
   * **Possible issues of priority scheduling**: **Starvation**: With an endless supply of high priority jobs, low priority processes may never execute
   * **Solution to starvation: increases priority with age**
 - Round-robin scheduling 
@@ -71,6 +71,13 @@ http://www.personal.kent.edu/~rmuhamma/OpSystems/Myos/threads.htm
 Processes are used to group resources together and threads are the entities scheduled for execution on the CPU.
 
 A thread is a single sequence stream within in a process. Because threads have some of the properties of processes, they are sometimes called lightweight processes. 
+
+Thread contains:
+
+- Thread id
+- program counter
+- register set
+- stack
 
 In a process, threads allow multiple executions of streams. **In many respect, threads are popular way to improve application through parallelism. The CPU switches rapidly back and forth among the threads giving illusion that the threads are running in parallel**. Like a traditional process i.e., process with one thread, a thread can be in any of several states (Running, Blocked, Ready or Terminated). **Each thread has its own stack.** Since thread will generally call different procedures and thus a different execution history. This is why thread needs its own stack. An operating system that has thread facility, the basic unit of CPU utilization is a thread. **A thread has or consists of a program counter (PC), a register set, and a stack space.** **Threads are not independent of one other like processes as a result threads shares with other threads their code section, data section, OS resources  also known as task, such as open files and signals.**
 
@@ -140,6 +147,8 @@ Example: Suppose there is a factory which takes 8 hours to produce a car and it 
 
 ###Thrashing
 ---
+It is a phenomenon in virtual memory when the processor spends most of its time swapping pages, rather than executing instructions. This is due to an inordinate number of page faults.
+
 http://stackoverflow.com/questions/19031902/what-is-thrashing-why-does-it-occur
 
 In operating systems that implement a virtual memory space the programs allocate memory from an address space that may be much larger than the actual amount of RAM the system possesses. The OS is responsible for deciding which programs "memory" is in actual RAM. It needs a place to keep things while they are "out". This is what is called "swap space", as the OS is swapping things in and out as needed. **When this swapping activity is occurring such that it is the major consumer of the CPU time, then you are effectively thrashing**. You prevent it by running fewer programs, writing programs that use memory more efficiently, adding RAM to the system, or maybe even by increasing the swap size.
@@ -164,6 +173,22 @@ A semaphore is a generalized mutex. In lieu of single buffer, we can split the 4
 Strictly speaking, **a mutex is locking mechanism** used to synchronize access to a resource. Only one task (can be a thread or process based on OS abstraction) can acquire the mutex. It means there is ownership associated with mutex, and only the owner can release the lock (mutex).
 
 **Semaphore is signaling mechanism** (“I am done, you can carry on” kind of signal). For example, if you are listening songs (assume it as one task) on your mobile and at the same time your friend calls you, an interrupt is triggered upon which an interrupt service routine (ISR) signals the call processing task to wakeup.
+
+###Fragmentation
+---
+
+When many of free blocks are too small to satisfy any request then fragmentation occurs. 
+
+Fragmentation types:
+- internal fragmentation
+- external fragmentation
+
+External fragmentation happens when a dynamic memory allocation algorithm allocates some memory and a small piece is left over that can not be effectively used.
+
+Internal fragmentation is the space wasted inside of allocated memory blocks because of restriction on the allowed sized of allocated blocks.
+
+
+
 
 
 
