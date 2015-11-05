@@ -14,5 +14,6 @@ When you search: you are search google's index of thw web. (Spiders)
 - Combines all the above facters and calculate the page's overall score and send you back.
 
 
+https://www.google.com/insidesearch/howsearchworks/crawling-indexing.html
 https://www.google.com/insidesearch/howsearchworks/thestory/
 
