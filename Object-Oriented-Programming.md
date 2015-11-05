@@ -1,5 +1,19 @@
 ###Interface vs Abstract class
 ---
+An interface is a contract: the guy writing the interface says, "hey, I accept things looking that way", and the guy using the interface says "Ok, the class I write looks that way".
+
+**An interface is an empty shell, there are only the signatures of the methods, which implies that the methods do not have a body**. The interface can't do anything. It's just a pattern.
+
+
+Abstract classes
+
+Abstract classes, unlike interfaces, are classes. They are more expensive to use because there is a look-up to do when you inherit from them.
+
+Abstract classes look a lot like interfaces, but they have something more : **you can define a behavior for them.** **It's more about a guy saying, "these classes should look like that, and they have that in common, so fill in the blanks!".**
+
+http://stackoverflow.com/questions/1913098/what-is-the-difference-between-an-interface-and-abstract-class
+
+
 
 1.Main difference is methods of a Java interface are implicitly abstract and cannot have implementations. A Java abstract class can have instance methods that implements a default behavior.
 
