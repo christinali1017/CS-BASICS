@@ -138,6 +138,12 @@ Message passing may be either blocking or non-blocking. Blocking is considered s
 Example: Suppose there is a factory which takes 8 hours to produce a car and it can produce 100 cars per day. Then the latency is 8 hours. Throughput is 100 cars/day.
 
 
+###Thrashing
+---
+http://stackoverflow.com/questions/19031902/what-is-thrashing-why-does-it-occur
+
+In operating systems that implement a virtual memory space the programs allocate memory from an address space that may be much larger than the actual amount of RAM the system possesses. The OS is responsible for deciding which programs "memory" is in actual RAM. It needs a place to keep things while they are "out". This is what is called "swap space", as the OS is swapping things in and out as needed. **When this swapping activity is occurring such that it is the major consumer of the CPU time, then you are effectively thrashing**. You prevent it by running fewer programs, writing programs that use memory more efficiently, adding RAM to the system, or maybe even by increasing the swap size.
+
 
 
 
