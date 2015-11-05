@@ -28,6 +28,11 @@
 - Sum: S = A1 * (1 - R^n) / (1 - R)
 
 
+###Sum of square numbers
+
+1 ^ 2 + 2 ^ 2 + ... + n ^ 2 = n * (n + 1) * (2n + 1) / 6
+
+
 
 
 
