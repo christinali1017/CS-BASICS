@@ -18,4 +18,6 @@ External sorting is a term for a class of sorting algorithms that can handle **m
 
 External sorting typically uses a hybrid sort-merge strategy. In the sorting phase, **chunks of data small enough to fit in main memory are read, sorted, and written out to a temporary file. In the merge phase, the sorted subfiles are combined into a single larger file.**
 
+**External merge sort**:
+
 https://en.wikipedia.org/wiki/External_sorting
