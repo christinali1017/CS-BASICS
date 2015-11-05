@@ -20,7 +20,7 @@ External sorting typically uses a hybrid sort-merge strategy. In the sorting pha
 
 **External merge sort**:
 
-One example of external sorting is the external merge sort algorithm, which sorts chunks that each fit in RAM, then merges the sorted chunks together.[1][2] For example, for sorting 900 megabytes of data using only 100 megabytes of RAM:
+One example of external sorting is the external merge sort algorithm, which sorts chunks that each fit in RAM, then merges the sorted chunks together. For example, for sorting 900 megabytes of data using only 100 megabytes of RAM:
 
 Read 100 MB of the data in main memory and sort by some conventional method, like quicksort.
 Write the sorted data to disk.
