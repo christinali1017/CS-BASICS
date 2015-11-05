@@ -143,4 +143,19 @@ public User getUser() {
 }
 ```
 
+###Iteration pattern
+---
+
+**Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.**. Whenever you sees something like hasNext() and next(), it is probably a iterator pattern. For example, you may iterate through a list of database query record.
+
+In java.util package, the Iterator interface is defined as follows:
+
+```java
+public interface Iterator<E> {
+    boolean hasNext();
+    E next();
+    void remove();
+}
+```
+
             
