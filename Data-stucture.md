@@ -38,7 +38,18 @@ An example sequence using quadratic probing is:
 
 Given two randomly, uniformly, and independently selected hash functions h_1 and h_2, the ith location in the bucket sequence for value k in a hash table T is: **h(i,k)=(h_1(k) + i * h_2(k)) mod |T|** Generally, h_1 and h_2 are selected from a set of universal hash functions.
 
-
-
 http://www.careerride.com/Data-Structure-Interview-Questions.aspx
+
+
+###AVL tree or height balanced binary search tree.
+---
+
+An AVL tree is **binary search tree (BST)** where the **difference in the height** of left and right subtrees of any node can be **at most one**.
+
+**Rotation**:
+After insertion or deletion operation the balance factor of the nodes in AVL tree can be changed and the tree may not be balanced. We can balance this tree by performing tree rotations.
+
+- Right Rotation 
+- Left Rotation
+
 
