@@ -23,7 +23,9 @@
 
 - Example: 2, 6, 18, 54, ...
 
-- Induction: An = a * R ^ (n - 1)
+- Induction: An = A1 * R ^ (n - 1)
+
+- Sum: S = A1 * (1 - R^n) / (1 - R)
 
 
 
