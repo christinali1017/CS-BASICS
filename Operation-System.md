@@ -5,7 +5,7 @@
 - execute
 
 ###Memory Hierarchy
-
+---
 - Registers
 - Cache
 - Main memory
@@ -186,6 +186,22 @@ Fragmentation types:
 External fragmentation happens when a dynamic memory allocation algorithm allocates some memory and a small piece is left over that can not be effectively used.
 
 Internal fragmentation is the space wasted inside of allocated memory blocks because of restriction on the allowed sized of allocated blocks.
+
+###Cache memory
+---
+http://placement.freshersworld.com/power-preparation/technical-interview-preparation/os-interview-questions-23351
+
+Cache memory is random access memory(RAM) that a computer microprocessor can access more quickly than it can access regular RAM. As the microprocessor processes data, it looks lick in the cache memory and it finds the data there, it does not have to do the more time-consuming reading of data from larger memory.
+
+
+###Busy waiting
+---
+The repeated execution of a loop of code while waiting for an event to occur is called busy waiting. The CPU is not engaged in any real productive activity during this period, and the process does not progress toward completion.
+
+
+
+
+
 
 
 
