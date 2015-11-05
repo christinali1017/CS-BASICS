@@ -41,4 +41,10 @@ public class MySingleton {
 }
 ```
 
+**Examples in java library**:
+- Logger class
+- Configuration
+- java.lang.Runtime
+
+
             
