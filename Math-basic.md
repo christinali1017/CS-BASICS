@@ -4,7 +4,7 @@
 
 - Example: 5, 7, 9, 11, 13, 15 … 
 
-- Induction: **An = A1 + (n - 1) * d** Or **An = Am + (n - m) * d**
+- Induction: Suppose d is the difference. **An = A1 + (n - 1) * d** Or **An = Am + (n - m) * d**
 
 - **Sum**
 
