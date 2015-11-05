@@ -16,6 +16,21 @@
     * Adding both sides of the two equations, all terms involving d cancel:**2Sn=n(a1 + an)**, which is **Sn = n * (A1 + An) / 2**
 
 
+###Geometric progression(等比数列）
+---
+
+- A sequence of numbers where each term after the first is found by multiplying the previous one by a fixed, non-zero number called the common ratio.
+
+- Example: 2, 6, 18, 54, ...
+
+- Induction: An = a * R ^ (n - 1)
+
+
+
+
+
+
+
 
 
  
