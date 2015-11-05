@@ -1,9 +1,9 @@
 ###How google works
 ---
 
-When you search:
+When you search: you are search google's index of thw web. (Spiders)
 
-- Algorithms get to work looking for clues to better understand what you mean (Finding information by crawling).
+- Finding information by crawling.
 - Based on these clues, we pull relevant documents from the index
 - Rank the results
 
