@@ -158,4 +158,4 @@ public interface Iterator<E> {
 }
 ```
 
-            
+Good design pattern resource: http://www.oodesign.com
