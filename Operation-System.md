@@ -68,6 +68,29 @@ Because of the very nature, threads can take advantage of multiprocessors.
 **But this cheapness does not come free - the biggest drawback is that there is no protection between threads.**
 
 
+###Deadlocks and necessary conditions
+---
+
+**Deadlock** is a situation or condition when two or more processes are holding some resources and trying to acquire some more resources, and they can not release the resources until they finish there execution.
+
+**Necessary conditions**:
+- **Mutual Exclusion**: There is s resource that cannot be shared.
+- **Hold and Wait**: A process is holding at least one resource and waiting for another resource which is with some other process.
+- **No Preemption**: The operating system is not allowed to take a resource back from a process until process gives it back.
+- **Circular Wait**:  A set of processes are waiting for each other in circular form.
+
+
+###Virtual Memory
+---
+
+Virtual memory is a memory management technique which maps memory addresses used by a program(**Virtual addresses**) into physical addresses in computer memory. 
+
+Memory management unit(MMU) automatically translates virtual addresses to physical addresses.
+
+Software within the operating system may extend these capabilities to provide a **virtual address space that can exceed the capacity of real memory and thus reference more memory than is physically present in the computer**.
+
+
+
 
 
 
