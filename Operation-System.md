@@ -1,4 +1,6 @@
-####IPC
+
+###IPC
+---
 
 Inter process communication.
 - Shared memory
@@ -8,7 +10,8 @@ Message passing may be either blocking or non-blocking. Blocking is considered s
 
 
 
-####Latency and Throughput
+###Latency and Throughput
+---
 
 - **Latency** is the time required to perform some action or to produce some result.
 
@@ -17,7 +20,9 @@ Message passing may be either blocking or non-blocking. Blocking is considered s
 Example: Suppose there is a factory which takes 8 hours to produce a car and it can produce 100 cars per day. Then the latency is 8 hours. Throughput is 100 cars/day.
 
 
-####Process and process table
+
+###Process and process table
+---
 
 http://courses.cs.vt.edu/csonline/OS/Lessons/Processes/index.html
 
@@ -26,6 +31,43 @@ A **process** is an instance of program in execution. For example a Web Browser 
 The operating system is responsible for managing all the processes that are running on a computer and allocated each process a certain amount of time to use the processor. In addition, the operating system also allocates various other resources that processes will need such as computer memory or disks. To keep track of the state of all the processes, the operating system maintains a table known as the **process table**. Inside this table, every process is listed along with the resources the processes is using and the current state of the process.
 
 Processes can be in one of three states: running, ready, or waiting. The running state means that the process has all the resources it need for execution and it has been given permission by the operating system to use the processor. Only one process can be in the running state at any given time. The remaining processes are either in a waiting state (i.e., waiting for some external event to occur such as user input or a disk access) or a ready state (i.e., waiting for permission to use the processor). In a real operating system, the waiting and ready states are implemented as queues which hold the processes in these states. 
+
+
+###Thread
+---
+http://www.personal.kent.edu/~rmuhamma/OpSystems/Myos/threads.htm
+
+Processes are used to group resources together and threads are the entities scheduled for execution on the CPU.
+
+A thread is a single sequence stream within in a process. Because threads have some of the properties of processes, they are sometimes called lightweight processes. 
+
+In a process, threads allow multiple executions of streams. **In many respect, threads are popular way to improve application through parallelism. The CPU switches rapidly back and forth among the threads giving illusion that the threads are running in parallel**. Like a traditional process i.e., process with one thread, a thread can be in any of several states (Running, Blocked, Ready or Terminated). **Each thread has its own stack.** Since thread will generally call different procedures and thus a different execution history. This is why thread needs its own stack. An operating system that has thread facility, the basic unit of CPU utilization is a thread. **A thread has or consists of a program counter (PC), a register set, and a stack space.** **Threads are not independent of one other like processes as a result threads shares with other threads their code section, data section, OS resources  also known as task, such as open files and signals.**
+
+
+###Thread vs Process
+---
+http://www.personal.kent.edu/~rmuhamma/OpSystems/Myos/threads.htm
+
+- Unlike processes, threads are not independent of one another.
+- Unlike processes, all threads can access every address in the task .
+- Unlike processes, thread are design to assist one other. Note that processes might or might not assist one another because processes may originate from different users.
+ 
+
+Why Threads?
+
+A process with multiple threads make a great server for example printer server.
+**Because threads can share common data, they do not need to use inter process communication.**
+Because of the very nature, threads can take advantage of multiprocessors.
+
+**Threads are cheap** in the sense that
+
+- They only need a stack and storage for registers therefore, threads are cheap to create.
+- Threads use very little resources of an operating system in which they are working. That is, threads do not need new address space, global data, program code or operating system resources.
+- **Context switching are fast** when working with threads. The reason is that we only have to save and/or restore PC, SP and registers.
+
+**But this cheapness does not come free - the biggest drawback is that there is no protection between threads.**
+
+
 
 
 
