@@ -41,9 +41,28 @@ Only one process can be in the running state at any given time. The remaining pr
 - Memory management information
 - Accounting information
 - I/O status
-
+- ....
 
 **Process identifiers**: PID, is global to the system.
+
+###Schedule
+---
+**no-preemptive vs preemptive**
+
+- No-preemptive: once process gets the cpu, it doesn't release it until the process terminates or switches to waiting.
+
+- preemptive: Using a timer, the OS can preempt the CPU even it the thread doesn’t relinquish it voluntarily.
+
+**Scheduling methods**:
+
+- First come first served
+- Shortest job first
+- Shortest remaining time first
+- Priority scheduling. Pick process with highest priority
+  * **Possible issues of priority scheduling**: **Starvation**: With an endless supply of high priority jobs, low priority processes may never execute
+  * Solution to starvation: increases priority with age
+- Round-robin scheduling 
+
 
 ###Thread
 ---
@@ -55,29 +74,21 @@ A thread is a single sequence stream within in a process. Because threads have s
 
 In a process, threads allow multiple executions of streams. **In many respect, threads are popular way to improve application through parallelism. The CPU switches rapidly back and forth among the threads giving illusion that the threads are running in parallel**. Like a traditional process i.e., process with one thread, a thread can be in any of several states (Running, Blocked, Ready or Terminated). **Each thread has its own stack.** Since thread will generally call different procedures and thus a different execution history. This is why thread needs its own stack. An operating system that has thread facility, the basic unit of CPU utilization is a thread. **A thread has or consists of a program counter (PC), a register set, and a stack space.** **Threads are not independent of one other like processes as a result threads shares with other threads their code section, data section, OS resources  also known as task, such as open files and signals.**
 
+**Re-entrant**: able to handle a second call while not
+done with previous one
+
 
 ###Thread vs Process
 ---
-http://www.personal.kent.edu/~rmuhamma/OpSystems/Myos/threads.htm
+Why Threads? (**Cheaper and may faster**)
 
-- Unlike processes, threads are not independent of one another.
-- Unlike processes, all threads can access every address in the task .
-- Unlike processes, thread are design to assist one other. Note that processes might or might not assist one another because processes may originate from different users.
- 
-
-Why Threads?
-
-A process with multiple threads make a great server for example printer server.
-**Because threads can share common data, they do not need to use inter process communication.**
-Because of the very nature, threads can take advantage of multiprocessors.
-
-**Threads are cheap** in the sense that
-
-- They only need a stack and storage for registers therefore, threads are cheap to create.
-- Threads use very little resources of an operating system in which they are working. That is, threads do not need new address space, global data, program code or operating system resources.
-- **Context switching are fast** when working with threads. The reason is that we only have to save and/or restore PC, SP and registers.
-
-**But this cheapness does not come free - the biggest drawback is that there is no protection between threads.**
+- Simpler programming model for concurrent activities
+- Easier/faster to communicate between threads than
+processes
+- Easier/cheaper to create/destroy than processes since they have no resources attached to them
+- With good mix of CPU and I/O bound activities, better performance
+- Even better if you have multiple CPUs
+- Context switching are fast when working with threads. The reason is that we only have to save and/or restore PC, SP and registers. **But this cheapness does not come free - the biggest drawback is that there is no protection between threads.**
 
 
 ###Deadlocks and necessary conditions
