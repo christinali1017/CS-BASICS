@@ -27,6 +27,11 @@
 
 - Sum: S = A1 * (1 - R^n) / (1 - R)
 
+- Derivation:
+https://en.wikipedia.org/wiki/Geometric_progression
+
+
+
 
 ###Sum of square numbers
 
