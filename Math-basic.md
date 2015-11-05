@@ -12,7 +12,8 @@
 
     * Sn=a1+(a1+d)+(a1+2d)+....+(a1+(n-2)d)+(a1+(n-1)d)
     * Sn=(an-(n-1)d)+(an-(n-2)d)+...+(an - 2d)+(an-d)+an.
-    * Adding both sides of the two equations, all terms involving d cancel:**2Sn=n(a1 + an)**, which is **Sn = n * (A1 + An) / 2
+    
+    * Adding both sides of the two equations, all terms involving d cancel:**2Sn=n(a1 + an)**, which is **Sn = n * (A1 + An) / 2**
 
 
 
