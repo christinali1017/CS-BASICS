@@ -368,6 +368,64 @@ Time take 2728
 List 1: 2000; list 2 : 2000
 ```
 
+###Thread pool
+---
+
+Use Executors.newFixedThreadPool(num) to create thread pool.
+
+See the following example:
+
+```java
+package multithreading;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
+class Processor implements Runnable{
+
+    private int id;
+
+    public Processor(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public void run() {
+        System.out.println("Starting: " + id);
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+        }
+        System.out.println("Completed: " + id);
+    }
+
+}
+
+public class ThreadPool {
+    public static void main(String[] args) {
+        ExecutorService executor = Executors.newFixedThreadPool(2);
+        for (int i = 0; i < 5; i++) {
+            executor.submit(new Processor(i));
+        }
+        executor.shutdown();
+
+        try {
+            executor.awaitTermination(1, TimeUnit.DAYS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("All tasks submitted");
+    }
+}
+
+
+```
+
+https://www.youtube.com/watch?v=lotAYC3hLVo&list=PLBB24CFB073F1048E&index=3
+
 
 
 
