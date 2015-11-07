@@ -925,6 +925,7 @@ class Account {
 
 Soltion 1: Use trylock of ReentrantLock
 
+When use reentrantlock, it returns immediately if the current thread already owns the lock.
 
 Whole example code:
 
