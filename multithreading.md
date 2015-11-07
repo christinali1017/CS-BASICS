@@ -796,6 +796,7 @@ Count is: 20000
 ```
 
 ###DeadLock and how to avoid
+---
 **Deadlock** is a situation or condition when two or more processes are holding some resources and trying to acquire some more resources, and they can not release the resources until they finish there execution.
 
 **Necessary conditions**:
@@ -1088,6 +1089,16 @@ public class TryLockAvoidDeadLock {
     }
 }
 ```
+
+
+###Semaphore
+---
+
+**a semaphore maintains a set of permits. Each acquire() blocks if necessary until a permit is available, and then takes it**. Each release() adds a permit, potentially releasing a blocking acquirer. However, no actual permit objects are used; the Semaphore just keeps a count of the number available and acts accordingly.
+
+**Semaphores are often used to restrict the number of threads than can access some (physical or logical) resource**. For example, here is a class that uses a semaphore to control access to a pool of items:
+
+
 
 Material refer:
 
