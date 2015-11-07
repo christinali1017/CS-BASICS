@@ -128,8 +128,48 @@ http://stackoverflow.com/questions/15956231/what-does-this-thread-join-code-mean
 ###Thread safety
 ---
 
+- Remember to keep the instance variables marked as private in multithread environment to avoid manipulating them by threads.
+- Unnecessary code synchronization will affect the application's performance.
 
+Simple example of Synchronized
 
+```java
+public class Example {
+    private int count =0;
+    public synchronized void increment() {
+        count++;
+    }
+    public static void main(String[] args) {
+        Example e = new Example();
+        e.doWork();
+    }
+    public void doWork() {
+        Thread t1 = new Thread(new Runnanle() {
+            public void run() {
+                for (int i = 0; i < 10000; i++) {
+                    increment();
+                }
+            }
+        });
+        
+        Thread t2 = new Thread(new Runnanle() {
+            public void run() {
+                for (int i = 0; i < 10000; i++) {
+                    increment();
+                }
+            }
+        });
+        
+        t1.start();
+        t2.start();
+        
+        t1.join();
+        t2.join();
+        
+        System.out.println("Count is " + count);
+    }
+}
+```
 
 
 
