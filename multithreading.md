@@ -795,8 +795,14 @@ Woken up!
 Count is: 20000
 ```
 
-###DeadLock
+###DeadLock and how to avoid
+**Deadlock** is a situation or condition when two or more processes are holding some resources and trying to acquire some more resources, and they can not release the resources until they finish there execution.
 
+**Necessary conditions**:
+- **Mutual Exclusion**: There is s resource that cannot be shared.
+- **Hold and Wait**: A process is holding at least one resource and waiting for another resource which is with some other process.
+- **No Preemption**: The operating system is not allowed to take a resource back from a process until process gives it back.
+- **Circular Wait**:  A set of processes are waiting for each other in circular form.
 
 
 ```java
@@ -913,6 +919,13 @@ class Account {
     }
 }
 ```
+
+
+**How to avoid deadlock**:
+
+Soltion 1: Use trylock of ReentrantLock
+
+
 
 Material refer:
 
