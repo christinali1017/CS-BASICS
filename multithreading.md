@@ -29,6 +29,58 @@ t.start();
 
 But there is no guarantee that the thread willl start immediately when start is invoked.
 
+At this point, java.lang.Thread has no idea about what we want to do. **Thus we need to extends Thread and override the Run method**. Or **implements Runnable interface.**
+
+Example:
+
+Extends Thread class:
+
+
+```java
+class Downloader extends Thread {
+    private String url;
+    public Downloader(String url) {
+        this.url = url;
+    }
+    
+    public void run() {
+        FileDowndloader fd = new FileDownloader();
+        fd.download(this.url);
+    }
+}
+```
+
+Implement Runnable:
+
+```java
+Class Downloader implements Runnanle {
+    private String url;
+    public Downloader(String url) {
+        this.url = url;
+    }
+    
+    public void run() {
+        FileDowndloader fd = new FileDownloader();
+        fd.download(this.url);
+    }
+}
+
+
+//When use it:
+Downloader d = new Downloader();
+Thread t = new Thread(d);
+t.start();
+```
+
+###Thread states
+---
+
+- New  Thread t = new Thread()
+- Runnable   t.start()
+- Running   the thread is actually executeing the code.
+- Sleep / waiting / blocked 
+
+
 
 
 
