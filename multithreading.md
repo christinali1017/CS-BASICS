@@ -122,6 +122,10 @@ Waits for this thread to die.
 
 So t1.join() is called to wait for the t1 thread to finish. Then t2.join() is called to wait for the t2 thread to finish. The 2 threads have been running in parallel but the thread that started them (probably the main thread) needs to wait for them to finish before continuing. That's a common pattern. When the main thread calls t1.join() it will stop running and wait for the t1 thread to finish.
 
+
+**Wait**:
+wait will release the lock.
+
 http://stackoverflow.com/questions/15956231/what-does-this-thread-join-code-mean
 
 
