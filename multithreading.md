@@ -131,20 +131,34 @@ http://stackoverflow.com/questions/15956231/what-does-this-thread-join-code-mean
 - Remember to keep the instance variables marked as private in multithread environment to avoid manipulating them by threads.
 - Unnecessary code synchronization will affect the application's performance.
 
-Simple example of Synchronized
+Simple example of **Synchronized**
 
 ```java
-public class Example {
+package multithreading;
+
+/**
+ * In this example, for increment count, we use synchronized to maintain the atomic of increment.
+ * 
+ * If we just put count++ in run method, the result can not guarantee to be 20000. Because 
+ * to do count++, it has 3 operations, we need first read count, then count + 1, then write 
+ * back. 
+ * 
+ * Because these three operations can not guarantee atomic, thus there is possibility that 
+ * the final result is < 20000.
+ *
+ */
+
+public class SynchronizedExample {
     private int count =0;
     public synchronized void increment() {
         count++;
     }
     public static void main(String[] args) {
-        Example e = new Example();
+        SynchronizedExample e = new SynchronizedExample();
         e.doWork();
     }
     public void doWork() {
-        Thread t1 = new Thread(new Runnanle() {
+        Thread t1 = new Thread(new Runnable() {
             public void run() {
                 for (int i = 0; i < 10000; i++) {
                     increment();
@@ -152,7 +166,7 @@ public class Example {
             }
         });
         
-        Thread t2 = new Thread(new Runnanle() {
+        Thread t2 = new Thread(new Runnable() {
             public void run() {
                 for (int i = 0; i < 10000; i++) {
                     increment();
@@ -163,12 +177,17 @@ public class Example {
         t1.start();
         t2.start();
         
-        t1.join();
-        t2.join();
+        try {
+            t1.join();
+            t2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         
         System.out.println("Count is " + count);
     }
 }
+
 ```
 
 
