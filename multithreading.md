@@ -125,6 +125,11 @@ So t1.join() is called to wait for the t1 thread to finish. Then t2.join() is ca
 http://stackoverflow.com/questions/15956231/what-does-this-thread-join-code-mean
 
 
+###Thread safety
+---
+
+
+
 
 
 
