@@ -72,13 +72,56 @@ Thread t = new Thread(d);
 t.start();
 ```
 
+###Thread constructor
+---
+
+You can specified Runnable target, thread name, thread group, etc.
+
+- Thread()
+
+- Thread(Runnable target)
+
+- Thread(Runnable target, String name)
+
+- Thread(String name)
+
+- Thread(ThreadGroup group, Runnable target)
+
+- Thread(ThreadGroup group, Runnable target, String name)
+
+- Thread(ThreadGroup group, Runnable target, String name, long stackSize)
+
+- Thread(ThreadGroup group, String name)
+
+
 ###Thread states
 ---
 
-- New  Thread t = new Thread()
-- Runnable   t.start()
-- Running   the thread is actually executeing the code.
-- Sleep / waiting / blocked 
+- **New**  Thread t = new Thread()
+- **Runnable**   t.start()
+- **Running**   the thread is actually executeing the code.
+- **Sleep / waiting / blocked**
+- **Dead**   cannot start again on this object once it is dead.
+
+
+###Thread priority
+---
+
+- All threads in java carry normal priority unless specified.
+- Priority specified 1 to 10
+- Priority should be set before start is called
+
+Yield:
+
+Yield method tells the currently running thread to give chance to other threads with equal priority in the thread pool. 
+
+
+Join:
+
+Indicated that the currently running thread should run after the thread(on which join is invoked)completes. 
+
+
+
 
 
 
