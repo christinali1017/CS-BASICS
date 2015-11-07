@@ -193,6 +193,85 @@ public class SynchronizedExample {
 In the above method, **if we add synchronized on a method, then it synchronized on "this" class object.**
 
 
+**Multi lock example**:
+
+In the following example, we have two threads to add element to two list. If we add synchronized to stageOne and stageTwo method, it's thread safe. But it takes around 5 seconds to finish adding. 
+
+Because we add synchronized on the two methods. Thus the two method can not be executed on the same time. Because they both have lock on "class object". 
+
+```java
+package multithreading;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class MultilockExample {
+    private List<Integer> list1 = new ArrayList<>();
+    private List<Integer> list2 = new ArrayList<>();
+
+    private Random random = new Random();
+    
+    public synchronized void stageOne() {
+        try {
+            Thread.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        list1.add(random.nextInt(100));
+    }
+
+    public synchronized void stageTwo() {
+        try {
+            Thread.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        list2.add(random.nextInt(100));
+    }
+
+    public void process() {
+        for (int i = 0; i < 1000; i++) {
+            stageOne();
+            stageTwo();
+        }
+    }
+
+    public static void main(String[] args) {
+        MultilockExample m = new MultilockExample();
+        System.out.println("Starting...");
+        long start = System.currentTimeMillis();
+        Thread t1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                m.process();
+            }
+        });
+        Thread t2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                m.process();
+            }
+        });
+        t1.start();
+        t2.start();
+        try {
+            t1.join();
+            t2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("Time take " + (end - start));
+        System.out.println("List 1: " + m.list1.size() + "; list 2 : " + m.list2.size());
+    }
+}
+
+```
+
+
 
 
 
