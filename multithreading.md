@@ -111,14 +111,21 @@ You can specified Runnable target, thread name, thread group, etc.
 - Priority specified 1 to 10
 - Priority should be set before start is called
 
-Yield:
+**Yield**:
 
 Yield method tells the currently running thread to give chance to other threads with equal priority in the thread pool. 
 
 
-Join:
+**Join**:
 
-Indicated that the currently running thread should run after the thread(on which join is invoked)completes. 
+Waits for this thread to die.
+
+So t1.join() is called to wait for the t1 thread to finish. Then t2.join() is called to wait for the t2 thread to finish. The 2 threads have been running in parallel but the thread that started them (probably the main thread) needs to wait for them to finish before continuing. That's a common pattern. When the main thread calls t1.join() it will stop running and wait for the t1 thread to finish.
+
+http://stackoverflow.com/questions/15956231/what-does-this-thread-join-code-mean
+
+
+
 
 
 
