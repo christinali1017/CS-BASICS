@@ -923,9 +923,46 @@ class Account {
 
 **How to avoid deadlock**:
 
-Soltion 1: Use trylock of ReentrantLock
+Soltion : Use trylock of ReentrantLock
 
 When use reentrantlock, it returns immediately if the current thread already owns the lock.
+
+**Here we use tryLock to check if current thread has aquired the lock.**
+
+Example code of aquiring two locks and avoid deadlock use tryLock.
+
+```java
+    private void acquireLocks(Lock firstLock, Lock secondLock) throws InterruptedException {
+        while(true) {
+            // Acquire locks
+            
+            boolean gotFirstLock = false;
+            boolean gotSecondLock = false;
+            
+            try {
+                gotFirstLock = firstLock.tryLock();
+                gotSecondLock = secondLock.tryLock();
+            }
+            finally {
+                if(gotFirstLock && gotSecondLock) {
+                    return;
+                }
+                
+                if(gotFirstLock) {
+                    firstLock.unlock();
+                }
+                
+                if(gotSecondLock) {
+                    secondLock.unlock();
+                }
+            }
+            
+            // Locks not acquired
+            Thread.sleep(1);
+        }
+    }
+```
+
 
 Whole example code:
 
