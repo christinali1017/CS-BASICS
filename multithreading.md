@@ -123,8 +123,7 @@ Waits for this thread to die.
 So t1.join() is called to wait for the t1 thread to finish. Then t2.join() is called to wait for the t2 thread to finish. The 2 threads have been running in parallel but the thread that started them (probably the main thread) needs to wait for them to finish before continuing. That's a common pattern. When the main thread calls t1.join() it will stop running and wait for the t1 thread to finish.
 
 
-**Wait**:
-wait will release the lock.
+**Wait**: wait (and notify) must happen in a block synchronized on the monitor object. **wait will release the lock**.
 
 http://stackoverflow.com/questions/15956231/what-does-this-thread-join-code-mean
 
@@ -575,6 +574,89 @@ public class ProducerAndConsumer {
             e.printStackTrace();
         }
     }
+}
+
+```
+
+Example of producer and consumer use wait and nofity:
+
+```java
+package multithreading;
+
+import java.util.LinkedList;
+import java.util.Random;
+
+public class ProducerConsumerExample2 {
+    private LinkedList<Integer> list = new LinkedList<>();
+    private final int limit = 10;
+    private Object lock = new Object();
+    
+    public void produce() throws InterruptedException {
+        int value = 0;
+        while (true) {
+            synchronized (lock) {
+                while (list.size() == limit) {
+                    lock.wait();
+                }
+                list.add(value++);
+                lock.notify();
+            }
+        }
+    }
+
+    public void consume() throws InterruptedException {
+        Random random = new Random();
+        while (true) {
+            synchronized (lock) {
+                while (list.size() == 0) {
+                    lock.wait();
+                }
+                System.out.println("List size is " + list.size());
+                int value = list.removeFirst();
+                System.out.println("value is " + value);
+                lock.notify(); //notify will wake threads lock on this object. 
+            }
+            Thread.sleep(random.nextInt(10));
+        }
+    }
+    
+    public static void main(String[] args) {
+        ProducerConsumerExample2 p = new ProducerConsumerExample2();
+        Thread t1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    p.produce();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            
+        });
+
+        Thread t2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    p.consume();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            
+        });
+
+        t1.start();
+        t2.start();
+
+        try {
+            t1.join();
+            t2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
 
 ```
