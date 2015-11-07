@@ -1,6 +1,5 @@
 ###Basic
 ---
-https://www.youtube.com/watch?v=O_Ojfq-OIpM
 
 Examples:
 
@@ -427,8 +426,6 @@ public class ThreadPool {
 
 ```
 
-https://www.youtube.com/watch?v=lotAYC3hLVo&list=PLBB24CFB073F1048E&index=3
-
 
 ###CountDownLatch
 ---
@@ -662,6 +659,136 @@ public class ProducerConsumerExample2 {
 ```
 
 
+###ReentrantLock
+---
+A reentrant **mutual exclusion Lock** with the same basic behavior and semantics as the implicit monitor lock accessed using synchronized methods and statements, but with extended capabilities.
+
+A ReentrantLock is owned by the thread last successfully locking, but not yet unlocking it. A thread invoking lock will return, successfully acquiring the lock, when the lock is not owned by another thread. **The method will return immediately if the current thread already owns the lock. This can be checked using methods isHeldByCurrentThread(), and getHoldCount()**.
+
+**The constructor for this class accepts an optional fairness parameter. When set true, under contention, locks favor granting access to the longest-waiting thread.**
+
+**It is recommended practice to always immediately follow a call to lock with a try block, most typically in a before/after construction such as:
+** Otherwise, if there is an exception, the lock might not successfully unlocked.
+
+```java
+ class X {
+   private final ReentrantLock lock = new ReentrantLock();
+   // ...
+
+   public void m() {
+     lock.lock();  // block until condition holds
+     try {
+       // ... method body
+     } finally {
+       lock.unlock()
+     }
+   }
+ }
+ ```
+ 
+ 
+
+Example:
+```java
+package multithreading;
+import java.util.Scanner;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class ReentrantLockExample {
+
+        private int count = 0;
+        private Lock lock = new ReentrantLock();
+        private Condition cond = lock.newCondition();
+
+        private void increment() {
+            for (int i = 0; i < 10000; i++) {
+                count++;
+            }
+        }
+
+        public void firstThread() throws InterruptedException {
+            lock.lock();
+            
+            System.out.println("Waiting ....");
+            cond.await();
+            
+            System.out.println("Woken up!");
+
+            try {
+                increment();
+            } finally {
+                lock.unlock();
+            }
+        }
+
+        public void secondThread() throws InterruptedException {
+            
+            Thread.sleep(1000);
+            lock.lock();
+            
+            System.out.println("Press the return key!");
+            new Scanner(System.in).nextLine();
+            System.out.println("Got return key!");
+            
+            cond.signal();
+
+            try {
+                increment();
+            } finally {
+                lock.unlock();
+            }
+        }
+
+        public void finished() {
+            System.out.println("Count is: " + count);
+        }
+        public static void main(String[] args) {
+            ReentrantLockExample p = new ReentrantLockExample();
+            Thread t1 = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        p.firstThread();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                
+            });
+
+            Thread t2 = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        p.secondThread();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                
+            });
+
+            t1.start();
+            t2.start();
+
+            try {
+                t1.join();
+                t2.join();
+                p.finished();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+```
+
+Material refer:
+
+https://www.youtube.com/watch?v=lotAYC3hLVo&list=PLBB24CFB073F1048E&index=3
+https://www.youtube.com/watch?v=O_Ojfq-OIpM
+https://docs.oracle.com/javase/7/docs/api
 
 
 
