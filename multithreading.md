@@ -10,7 +10,9 @@ Examples:
 
 Process and threads:
 
-A office word opened on your computer can be considered as a process.A error check can be considered as a thread.
+- A office word opened on your computer can be considered as a process.A error check can be considered as a thread.
+- Even when you do not create threads there is a main thread execute the program
+- 
 
 
 
