@@ -17,6 +17,18 @@ Process and threads:
 
 Creating threads:
 
+```java
+Thread t = new Thread();
+```
+
+At this point, you just creates a thread object. You need to call 
+
+```java
+t.start();
+```
+
+But there is no guarantee that the thread willl start immediately when start is invoked.
+
 
 
 
