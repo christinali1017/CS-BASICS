@@ -190,7 +190,7 @@ public class SynchronizedExample {
 
 ```
 
-In the above method, if we add synchronized on a method, then it synchronized on "this" class object.
+In the above method, **if we add synchronized on a method, then it synchronized on "this" class object.**
 
 
 
