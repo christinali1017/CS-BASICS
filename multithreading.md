@@ -784,6 +784,17 @@ public class ReentrantLockExample {
     }
 ```
 
+Result:
+
+```java
+Waiting ....
+Press the return key!
+
+Got return key!
+Woken up!
+Count is: 20000
+```
+
 Material refer:
 
 https://www.youtube.com/watch?v=lotAYC3hLVo&list=PLBB24CFB073F1048E&index=3
