@@ -136,6 +136,9 @@ entries is determined by external references to the key, not the value.
 ensure that callbacks are garbage collected promptly is to store only weak references
 to them, for instance, by storing them only as keys in a **WeakHashMap**.
 
+**WeakHashMap**: Elements in a weak hashmap can be reclaimed by the garbage collector if there are no other strong references to the object, this makes them useful for caches/lookup storage.
+
+
 
 
 
