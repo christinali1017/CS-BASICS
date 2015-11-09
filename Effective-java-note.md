@@ -138,6 +138,8 @@ to them, for instance, by storing them only as keys in a **WeakHashMap**.
 
 **WeakHashMap**: Elements in a weak hashmap can be reclaimed by the garbage collector if there are no other strong references to the object, this makes them useful for caches/lookup storage.
 
+Weak reference are not restricted to these hash tables, you can use WeakReference for single objects. They are useful to save resource, you can keep a reference to something but allow it to be collected when nothing else references it. (BTW, a string reference is a normal java reference). There are also weak references which tend not to be as readily collected as soft references (which don't tend to hang about for long after the last strong reference disappears)
+
 
 
 
