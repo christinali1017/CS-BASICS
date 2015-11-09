@@ -132,8 +132,7 @@ so long as there are references to its key outside of the cache, represent the c
 as a WeakHashMap; entries will be removed automatically after they become obsolete.
 Remember that WeakHashMap is useful only if the desired lifetime of cache
 entries is determined by external references to the key, not the value.
-- listeners and callbacks： If you implement an API where clients register callbacks but don’t deregister them
-explicitly, they will accumulate unless you take some action. The best way to
+- listeners and callbacks： If you implement an API where clients register callbacks but don’t deregister them explicitly, they will accumulate unless you take some action. The best way to
 ensure that callbacks are garbage collected promptly is to store only weak references
 to them, for instance, by storing them only as keys in a WeakHashMap.
 
