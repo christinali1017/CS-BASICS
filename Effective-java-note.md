@@ -127,7 +127,11 @@ Prefer primitives to boxed primitives, and watch out for unintentional auto-boxi
 Possible memory leaks:
 
 - Obsolete object reference
-- cache: 
+- **cache**: If you’re lucky enough to implement a cache for which an entry is relevant exactly
+so long as there are references to its key outside of the cache, represent the cache
+as a WeakHashMap; entries will be removed automatically after they become obsolete.
+Remember that WeakHashMap is useful only if the desired lifetime of cache
+entries is determined by external references to the key, not the value.
 - listeners and callbacks
 
 
