@@ -96,5 +96,18 @@ public User getUser() {
 
 **A single-element enum type is the best way to implement a singleton**
 
+singleton with static factory:
+
+```java
+public class Elvis {
+    private static final Elvis INSTANCE = new Elvis();
+    private Elvis() { ... }
+    public static Elvis getInstance() {
+        return INSTANCE; 
+    }
+    public void leaveTheBuilding() { ... }
+}
+```
+
 
 
