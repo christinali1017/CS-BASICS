@@ -122,5 +122,12 @@ public enum Elvis {
 
 Prefer primitives to boxed primitives, and watch out for unintentional auto-boxing.
 
+####Item 6: Eliminate obsolete object references
+
+Possible memory leaks:
+
+- Obsolete object reference
+- 
+
 
 
