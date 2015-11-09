@@ -120,7 +120,7 @@ public enum Elvis {
 
 ####Item 5: Avoid creating unnecessary objects
 
-Prefer primitives to boxed primitives, and watch out for unintentional autoboxing.
+Prefer primitives to boxed primitives, and watch out for unintentional auto-boxing.
 
 
 
