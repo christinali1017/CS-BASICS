@@ -2,7 +2,7 @@
 ---
 
 
-Item 2: **Consider a builder when faced with many constructor parameters. --- Builder Pattern**
+####Item 2: **Consider a builder when faced with many constructor parameters. --- Builder Pattern**
 
 Example:
 
@@ -90,6 +90,8 @@ public User getUser() {
 			.build();
 }
 ```
+
+
 
 
 
