@@ -109,5 +109,14 @@ public class Elvis {
 }
 ```
 
+Enum singleton - the preferred approach
+
+```java
+public enum Elvis {
+    INSTANCE;
+    public void leaveTheBuilding() { ... }
+}
+```
+
 
 
