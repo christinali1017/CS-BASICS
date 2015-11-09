@@ -127,7 +127,7 @@ Prefer primitives to boxed primitives, and watch out for unintentional auto-boxi
 Possible memory leaks:
 
 - Obsolete object reference
-- cache
+- cache: 
 - listeners and callbacks
 
 
