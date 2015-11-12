@@ -32,3 +32,16 @@ http://stackoverflow.com/questions/1913098/what-is-the-difference-between-an-int
 8.In comparison with java abstract classes, java interfaces are slow as it requires extra indirection.
 
 http://javapapers.com/core-java/abstract-and-interface-core-java-2/difference-between-a-java-interface-and-a-java-abstract-class/
+
+
+###Polymorphism
+---
+
+http://stackoverflow.com/questions/1031273/what-is-polymorphism-what-is-it-for-and-how-is-it-used
+
+
+**Polymorphism describes a pattern in object oriented programming in which classes have different functionality while sharing a common interface.**
+
+The beauty of polymorphism is that the code working with the different classes does not need to know which class it is using since they’re all used the same way. A real world analogy for polymorphism is a button. Everyone knows how to use a button: you simply apply pressure to it. What a button “does,” however, depends on what it is connected to and the context in which it is used — but the result does not affect how it is used. If your boss tells you to press a button, you already have all the information needed to perform the task.
+
+In the programming world, polymorphism is used to make applications more modular and extensible. Instead of messy conditional statements describing different courses of action, you create interchangeable objects that you select based on your needs. That is the basic goal of polymorphism.
