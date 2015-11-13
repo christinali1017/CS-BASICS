@@ -152,5 +152,11 @@ the responsibility of any class overriding these methods to obey their general c
 failure to do so will prevent other classes that depend on the contracts (such
 as HashMap and HashSet) from functioning properly in conjunction with the class.
 
+####Item 8: Obey the general contract when overriding equals
+- **A superclass has already overridden equals, and the superclass behavior
+is appropriate for this class**. For example, most Set implementations inherit
+their equals implementation from AbstractSet, List implementations from
+AbstractList, and Map implementations from AbstractMap.
+
 
 
