@@ -184,3 +184,7 @@ will result in a violation of the general contract for Object.hashCode, which wi
 **prevent your class from functioning properly in conjunction with all hash-based
 collections, including HashMap, HashSet, and Hashtable**.
 
+####Item 10: Always override toString
+
+
+
