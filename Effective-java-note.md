@@ -159,4 +159,9 @@ their equals implementation from AbstractSet, List implementations from
 AbstractList, and Map implementations from AbstractMap.
 
 
+- **So when is it appropriate to override Object.equals?** When a class has a
+notion of logical equality that differs from mere object identity, and a superclass
+has not already overridden equals to implement the desired behavior. This is generally
+the case for value classes.
+
 
