@@ -14,8 +14,14 @@ http://www.ibm.com/developerworks/library/l-awk1/
 ###What is the difference between (cp f1.txt f2.txt) & (less f1.txt > f2.txt)
 ---
 
-- less happens to be slower
-- 
+The difference is that cp is far clearer to humans. That is one of the first things you should be optimizing for.
+
+Using less in this way is so obscure, it's not really obvious that it works unless you try it out. The other answer points out that it doesn't work - if your file contains certain characters, and you expect the command to work without user interaction, e.g. as part of a script. This limitation is also obscure (at least I didn't think of it, despite having seen this behavior plenty of times).
+
+less happens to be slower, one reason is it transfers data in smaller chunks. Run them under strace, I see less chunks 1023 bytes (1KiB - 1); cp chunks 64KiB.
+
+- **less happens to be slower**
+
 
 
 http://unix.stackexchange.com/questions/189347/what-is-the-difference-between-cp-f1-txt-f2-txt-less-f1-txt-f2-txt
