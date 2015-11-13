@@ -5,6 +5,8 @@
 ```
 grep '\(([0-9]\{3\})\|[0-9]\{3\}\)[ -]\?[0-9]\{3\}[ -]\?[0-9]\{4\}' file
 ```
+http://stackoverflow.com/questions/2269586/grep-with-regex-for-phone-number
+
 
 
 
