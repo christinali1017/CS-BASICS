@@ -1,3 +1,11 @@
+###GCD && LCM
+---
+Greatest common divisor and Lowest common multiple
+
+
+
+
+
 ###Arithmetic progression(等差数列)
 
 - A sequence of numbers such that the difference between the consecutive terms is constant.
