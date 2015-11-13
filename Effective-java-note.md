@@ -162,6 +162,11 @@ AbstractList, and Map implementations from AbstractMap.
 - **So when is it appropriate to override Object.equals?** When a class has a
 notion of logical equality that differs from mere object identity, and a superclass
 has not already overridden equals to implement the desired behavior. This is generally
-the case for value classes.
+the case for value classes. A value class is simply a class that represents a
+value, such as Integer or Date. A programmer who compares references to value
+objects using the equals method expects to find out whether they are logically
+equivalent, not whether they refer to the same object. Not only is overriding the
+equals method necessary to satisfy programmer expectations; it enables instances
+to serve as map keys or set elements with predictable, desirable behavior.
 
 
