@@ -67,5 +67,64 @@ It should be mentioned that there's a less-known variant that combines the space
 
 http://stackoverflow.com/questions/3332947/when-is-it-practical-to-use-dfs-vs-bfs
 
+Depth-first search (DFS) is an algorithm (or technique) for traversing a graph.
+
+Following are the problems that use DFS as a bulding block.
+
+1) For an unweighted graph, DFS traversal of the graph produces the minimum spanning tree and all pair shortest path tree.
+
+2) Detecting cycle in a graph 
+A graph has cycle if and only if we see a back edge during DFS. So we can run DFS for the graph and check for back edges. (See this for details)
+
+3) Path Finding
+We can specialize the DFS algorithm to find a path between two given vertices u and z.
+i) Call DFS(G, u) with u as the start vertex.
+ii) Use a stack S to keep track of the path between the start vertex and the current vertex.
+iii) As soon as destination vertex z is encountered, return the path as the
+contents of the stack
+
+See this for details.
+
+4) Topological Sorting
+See this for details.
+
+5) To test if a graph is bipartite
+We can augment either BFS or DFS when we first discover a new vertex, color it opposited its parents, and for each other edge, check it doesn’t link two vertices of the same color. The first vertex in any connected component can be red or black! See this for details.
+
+6) Finding Strongly Connected Components of a graph A directed graph is called strongly connected if there is a path from each vertex in the graph to every other vertex. (See this for DFS based algo for finding Strongly Connected Components)
+
+7) Solving puzzles with only one solution, such as mazes. (DFS can be adapted to find all solutions to a maze by only including nodes on the current path in the visited set.)
+
+http://www.geeksforgeeks.org/applications-of-depth-first-search/
+
+1) Shortest Path and Minimum Spanning Tree for unweighted graph In unweighted graph, the shortest path is the path with least number of edges. With Breadth First, we always reach a vertex from given source using minimum number of edges. Also, in case of unweighted graphs, any spanning tree is Minimum Spanning Tree and we can use either Depth or Breadth first traversal for finding a spanning tree.
+
+2) Peer to Peer Networks. In Peer to Peer Networks like BitTorrent, Breadth First Search is used to find all neighbor nodes.
+
+3) Crawlers in Search Engines: Crawlers build index using Bread First. The idea is to start from source page and follow all links from source and keep doing same. Depth First Traversal can also be used for crawlers, but the advantage with Breadth First Traversal is, depth or levels of built tree can be limited.
+
+4) Social Networking Websites: In social networks, we can find people within a given distance ‘k’ from a person using Breadth First Search till ‘k’ levels.
+
+5) GPS Navigation systems: Breadth First Search is used to find all neighboring locations.
+
+6) Broadcasting in Network: In networks, a broadcasted packet follows Breadth First Search to reach all nodes.
+
+7) In Garbage Collection: Breadth First Search is used in copying garbage collection using Cheney’s algorithm. Refer this and for details. Breadth First Search is preferred over Depth First Search because of better locality of reference:
+
+8) Cycle detection in undirected graph: In undirected graphs, either Breadth First Search or Depth First Search can be used to detect cycle. In directed graph, only depth first search can be used.
+
+9) Ford–Fulkerson algorithm In Ford-Fulkerson algorithm, we can either use Breadth First or Depth First Traversal to find the maximum flow. Breadth First Traversal is preferred as it reduces worst case time complexity to O(VE2).
+
+10) To test if a graph is Bipartite We can either use Breadth First or Depth First Traversal.
+
+11) Path Finding We can either use Breadth First or Depth First Traversal to find if there is a path between two vertices.
+
+12) Finding all nodes within one connected component: We can either use Breadth First or Depth First Traversal to find all nodes reachable from a given node.
+
+Many algorithms like Prim’s Minimum Spanning Tree and Dijkstra’s Single Source Shortest Path use structure similar to Breadth First Search.
+
+There can be many more applications as Breadth First Search is one of the core algorithm for Graphs.
+
+
 
 
