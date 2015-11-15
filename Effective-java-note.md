@@ -186,5 +186,24 @@ collections, including HashMap, HashSet, and Hashtable**.
 
 ####Item 10: Always override toString
 
+- providing a good toString implementation makes your class
+much more pleasant to use.
+- When practical, the toString method should return all of the interesting
+information contained in the object
 
+
+####Item 11: Override clone judiciously
+
+The general intent of clone is that for any object x, 
+
+- x.clone() != x will be true
+
+- x.clone().getClass() == x.getClass()
+will be true
+
+- x.clone().equals(x)
+will be true, this is not an absolute requirement. 
+
+Copying an object will typically
+entail creating a new instance of its class, but it may require
 
