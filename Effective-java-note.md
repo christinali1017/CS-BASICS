@@ -194,18 +194,9 @@ information contained in the object
 
 ####Item 11: Override clone judiciously
 
-The general intent of clone is that for any object x, 
+- If you override the clone method in a nonfinal class, you should
+return an object obtained by invoking **super.clone.**
+- Remember to copy internal data structure if needed.
 
-- x.clone() != x will be true
-
-- x.clone().getClass() == x.getClass()
-will be true
-
-- x.clone().equals(x)
-will be true, this is not an absolute requirement. 
-
-Copying an object will typically
-entail creating a new instance of its class, but it **may require class, but it may require copying of
-internal data structures** as well.
 
 
