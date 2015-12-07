@@ -15,6 +15,22 @@ With the above representation, we have:
 
 
 ###Virtual memory
+---
+
+Why virtual memory?
+
+**Provide the illusion of very very large main memory.** 
+- Store bulk of data on disk, use physical DRAM as a cache for the disk
+- Address space of a process can exceed physical memory
+- Sum of address spaces of multiple processes can exceed physical memory.
+
+
+**Simplify memory management**
+
+- multiple processes reside in main memory
+- only active code and data is actually in memory
+
+
 
 
 
