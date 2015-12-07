@@ -198,7 +198,6 @@ Cache memory is random access memory(RAM) that a computer microprocessor can acc
 ---
 The repeated execution of a loop of code while waiting for an event to occur is called busy waiting. The CPU is not engaged in any real productive activity during this period, and the process does not progress toward completion.
 
-###Synchronization
 
 
 
