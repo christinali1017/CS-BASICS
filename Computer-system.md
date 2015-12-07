@@ -37,6 +37,37 @@ Why virtual memory?
 - User process can't access privileged information
 
 
+How virtual memory works?
+
+**A page table maps virtual pages to physical pages.** 
+
+- one page table entry(PTE) per virtual page.
+- Each PTE specifies either a physical page or disk block address
+- Each process has its own page table
+
+**Address translation**
+
+Basic Parameters
+- N = 2^n : Number of addresses in virtual address space
+- M = 2^m : Number of addresses in physical address space
+- P = 2^p  : Page size (bytes)
+
+Components of the virtual address (VA)
+- TLBI: TLB index
+- TLBT: TLB tag
+- VPO: Virtual page offset
+- VPN: Virtual page number
+
+Components of the physical address (PA)
+- PPO: Physical page offset (same as VPO)
+- PPN:Physical page number
+- CO: Byte offset within cache line
+- CI:Cache index
+- CT: Cache tag
+
+
+
+
 
 
 
