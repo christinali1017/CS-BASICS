@@ -14,3 +14,8 @@ With the above representation, we have:
 - Infinity: exponent 11111... significand zero
 
 
+###Virtual memory
+
+
+
+
