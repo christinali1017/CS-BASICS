@@ -31,6 +31,13 @@ Why virtual memory?
 - only active code and data is actually in memory
 
 
+**Provide protection**:
+
+- One process can't interfere with another
+- User process can't access privileged information
+
+
+
 
 
 
